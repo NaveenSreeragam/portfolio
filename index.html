@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveen S | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">NAVEEN S.</div>
+        <ul class="nav-links">
+            <li><button onclick="navigateTo('home')" class="active" data-target="home">Home</button></li>
+            <li><button onclick="navigateTo('about')" data-target="about">Profile</button></li>
+            <li><button onclick="navigateTo('skills')" data-target="skills">Skills</button></li>
+            <li><button onclick="navigateTo('projects')" data-target="projects">Vision</button></li>
+            <li><button onclick="navigateTo('contact')" data-target="contact">Connect</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h1>Excellence in <br>Security.</h1>
+            <p class="subtitle">Computer Science Engineering Student at Marian Engineering College.<br>Building the
+                future of AI & Intelligent Systems.</p>
+            <a href="#" onclick="navigateTo('projects')" class="cta-button">View Vision</a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>The Profile</h2>
+            <p class="subtitle">A highly driven Computer Science Engineering student focused on building strong
+                fundamentals in computing.</p>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Education</h3>
+                    <p><strong>B.Tech in CSE</strong><br>Marian Engineering College (2025 – Present)<br>1st Year
+                        Undergraduate</p>
+                </div>
+                <div class="card">
+                    <h3>Ambition</h3>
+                    <p>Passionate about AI systems, automation, full-stack development, and creating intelligent tools
+                        like JARVIS-style assistants.</p>
+                </div>
+                <div class="card">
+                    <h3>Traits</h3>
+                    <p>Focused · Determined · Curious<br>Strong Leadership & Logic<br>Consistent Learner</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="cyber">
+            <h2>Capabilities</h2>
+            <p class="subtitle">Technical proficiency and areas of strength.</p>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Core Stack</h3>
+                    <p>Python · C · Java · SQL<br>HTML/CSS · JavaScript<br>Git & Version Control</p>
+                </div>
+                <div class="card">
+                    <h3>Interests</h3>
+                    <p>Artificial Intelligence · Full Stack Web<br>Data Engineering · System Design<br>Cybersecurity &
+                        Automations</p>
+                </div>
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <p>Leadership · Communication<br>Project Ideation · Rapid Learning<br>Technical Curiosity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (using existing ID structure slightly modified or just add to cyber section? No, let's keep sections relative to nav) 
+             Wait, nav has 'home', 'about', 'cyber', 'contact'. I should stick to these IDs or update nav as well. 
+             I will rename 'cyber' section to 'Capabilities' content but keep ID 'cyber' to avoid breaking script or update script/nav too.
+             Actually, better to just update the Nav in a separate edit or assume the previous nav edit passed? 
+             Visual check of step 91 shows usage of 'cyber' ID. I will stick to 'cyber' for Skills and maybe add Projects inside distinct blocks in 'cyber' or rename.
+             Let's use the layout: Home, About, Skills (ID: cyber), Projects (New ID? Layout needs to handle it), Contact.
+             The user has a fixed set of buttons in Nav. I should probably stick to the 4 sections or update Nav.
+             I will add a Projects section and update Nav to point to it if I can.
+             The current Nav has: Home, Profile, Expertise, Contact.
+             Expertise -> Skills.
+             I will add 'Projects' to Nav in the same edit if possible or just put projects in "Expertise".
+             Let's put Projects in "Expertise" for now to save space or make a new section.
+             I'll make a new section "projects" and update the nav in this single file replace if I can target enough lines.
+             I am replacing <main>... to ...</main>. I can't easily replace Nav which is outside main.
+             I will stick to 4 sections for simplicity of the "Fluid" transition not needing new logic, 
+             BUT I will rename "Cyber" to "Capabilities" title.
+             Actually, I will just repurpose the "Cyber" section to be "Skills & Projects" or add a 5th section and hope the user finds it contextually. 
+             Wait, I can just update the Nav in a second edit.
+             Let's do the <main> update first with 5 sections (Home, About, Skills, Projects, Contact).
+        -->
+        <section id="skills">
+            <h2>Capabilities</h2>
+            <p class="subtitle">Core skills and technical strengths.</p>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p>Python, C, Java, JavaScript, HTML, CSS, SQL.</p>
+                </div>
+                <div class="card">
+                    <h3>Interests</h3>
+                    <p>AI/ML, Full Stack Web, System Design, Cybersecurity.</p>
+                </div>
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <p>Leadership, Communication, Logic, Project Ideation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Vision & Works</h2>
+            <p class="subtitle">Building the future with code.</p>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>AI Assistant</h3>
+                    <p>Concept for a JARVIS-like voice/chat assistant for personal automation.</p>
+                </div>
+                <div class="card">
+                    <h3>Library System</h3>
+                    <p>Student management system with database relations and CRUD.</p>
+                </div>
+                <div class="card">
+                    <h3>Web Tools</h3>
+                    <p>Personal Portfolio, Weather Apps, and Productivity Tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Connect</h2>
+            <p class="subtitle">Reach out via any of these platforms.</p>
+
+            <div class="contact-grid">
+                <a href="https://www.instagram.com/naveen_sreeragam?igsh=aHp6ZTJqM2xxb25p" target="_blank"
+                    class="contact-btn">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/naveensreeragam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank" class="contact-btn">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/NaveenSreeragam" target="_blank" class="contact-btn">
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:naveensreeragam@gmail.com" class="contact-btn">
+                    <span>Gmail</span>
+                </a>
+                <a href="mailto:naveens2006@outlook.com" class="contact-btn">
+                    <span>Outlook</span>
+                </a>
+                <a href="tel:+917510708288" class="contact-btn">
+                    <span>+91 75107 08288</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
