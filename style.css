@@ -254,28 +254,125 @@ p.subtitle {
     transform: translateY(-3px);
 }
 
-/* Responsive */
+/* Responsive & Mobile Optimization */
 @media (max-width: 1024px) {
-    h1 {
-        font-size: 3.5rem;
+    body {
+        overflow-y: auto;
+        /* Enable scrolling on body for mobile */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    nav {
+        padding: 15px;
+        background: rgba(11, 16, 22, 0.95);
+        /* Darker background for readability */
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+        position: relative;
+        /* Un-fix nav so it scrolls or stick nicely */
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        /* Allow buttons to wrap */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-links li button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        /* Slight bg for touch targets */
+        border-radius: 8px;
+    }
+
+    main {
+        padding-top: 20px;
+        height: auto;
+        overflow: visible;
+        display: block;
+        /* Stack sections normally on mobile */
     }
 
     section {
-        padding: 40px;
+        position: relative;
+        /* Stack relative instead of absolute */
+        width: 100%;
         height: auto;
-        min-height: 60vh;
-        padding-top: 100px;
+        min-height: auto;
+        opacity: 1;
+        /* Always visible or use JS to scroll? JS logic hides them. 
+                       If we want JS tabs to still work, we keep absolute/hidden logic OR 
+                       we let JS handle visibility but ensure container size adapts. 
+                       Let's stick to SPA feel but ensure height fits content. */
+        padding: 40px 20px;
+        transform: none !important;
+        /* Disable complex entry transforms on mobile for performance */
+        margin-bottom: 20px;
+        top: 0;
+        pointer-events: all;
+    }
+
+    /* We need to override the 'display: none' or opacity behavior if we want a scrolling site, 
+       BUT the user asked for a "website", and the current script handles tabs. 
+       Let's keep the TAB behavior but ensure the container grows. 
+       Reverting 'position: relative' above: stick to absolute but handle height.
+       Actually, standard SPA on mobile often keeps one view. 
+       Problem: fixed height 70vh in CSS might clip content.
+       Fix: min-height: auto and fit-content. */
+
+    section.active {
+        position: relative;
+        /* On mobile, let the active section take up flow space so body grows */
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    section:not(.active) {
+        display: none;
+        /* Hide inactive sections completely on mobile to prevent scrolling issues */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        word-wrap: break-word;
+        /* Prevent overflow */
+    }
+
+    h2 {
+        font-size: 2rem;
     }
 
     .grid-container {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    nav {
+    .card {
         padding: 20px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links li button {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 }
